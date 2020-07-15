@@ -1,0 +1,141 @@
+// From https://css-tricks.com/snippets/sass/material-shadows-mixin/
+
+/// Computes a top-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function top-shadow($depth) {
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+  $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+  $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 to-rem($primary-offset) to-rem($blur) $color;
+}
+
+/// Computes a bottom-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function bottom-shadow($depth) {
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+  $blur: nth(1 3 3 5 6, $depth) * 4px;
+  $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 to-rem($primary-offset) to-rem($blur) $color;
+}
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+@mixin material-card($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+  }
+}
+
+
+$fab-toolbar-margin: 3rem;
+$fab-toolbar-diameter: 5.6rem;
+$fab-toolbar-transition-duration: .2s;
+
+$fab-toolbar-open-margin: 0;
+$fab-toolbar-open-height: 8rem;
+
+.fab-toolbar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: $fab-toolbar-margin;
+  width: $fab-toolbar-diameter;
+  height: $fab-toolbar-diameter;
+  border-radius: 50%;
+  z-index: 10;
+
+  transition-duration: $fab-toolbar-transition-duration;
+  transition-timing-function: ease;
+  transition-property: box-shadow, width, height, margin, border-radius, background-color;
+
+  @include material-card(1);
+
+  &:hover,
+  &:focus {
+    @include material-card(2);
+  }
+
+  border: transparent solid .1rem;
+  &:focus {
+    border: get($form-control-colors, 'bd-focus') solid .1rem;
+    // override default outline
+    outline: none;
+  }
+
+  overflow: hidden;
+}
+
+
+// Toolbar transitioning and content
+//
+// 1. Transition the appearance of the content:
+//   1a. Crossfade the default content and the open content,
+//   1b. Bring the active content to the front so that the
+//       user can interact with it
+// 2. Transition the shape of the toolbar itself
+
+.fab-toolbar__content,
+.fab-toolbar--open__content {
+  transition: opacity $fab-toolbar-transition-duration ease; // [1a]
+
+  opacity: 1; // [1a]
+  z-index: 1; // [1b]
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab-toolbar--open__content {
+  opacity: 0; // [1a]
+  z-index: 0; // [1b]
+}
+
+.fab-toolbar--open {
+  // [2]
+  width: 100%;
+  height: $fab-toolbar-open-height;
+  margin: $fab-toolbar-open-margin;
+  border-radius: 0;
+
+  .fab-toolbar__content {
+    opacity: 0; // [1a]
+    z-index: 0; // [1b]
+  }
+
+  .fab-toolbar--open__content {
+    opacity: 1; // [1a]
+    z-index: 1; // [1b]
+  }
+}
+
+// Skinning
+
+.fab-toolbar--primary {
+  background: $zc-green;
+
+  &.fab-toolbar--open {
+    background: white;
+  }
+
+  .fab-toolbar__content {
+    color: white;
+  }
+}

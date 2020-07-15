@@ -1,0 +1,105 @@
+.todo-shell {
+  overflow: hidden; // Get rid of rubber-band scrolling at beginning / end of child scroll
+}
+
+.todo-shell .wksp-main {
+  padding-bottom: 0;
+}
+
+.todo-list {
+  // Override list-group margin.
+  margin-bottom: 0 !important;
+}
+
+.todo-list__item {
+  background-color: #fff;
+
+  &--expanded .todo-list__item__header-block {
+    font-weight: bold;
+  }
+
+  &--complete {
+    background: none;
+    color: $zc-gray-70;
+  }
+}
+
+.todo-list__item__controls-toolbar[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+.todo-list__item__block {
+  // Align contents of "top row" vertically centered
+  @include align-self(center);
+}
+
+.todo-list__item__checkbox-block .checkbox {
+  margin: 0;
+
+  label:before,
+  label:after {
+    top: 0;
+  }
+}
+
+.todo-list__item__header-block {
+  cursor: pointer;
+}
+
+.todo-list__item__labels-block .label {
+  background-color: $zc-gray-20;
+  color: $zc-gray-70;
+  font-weight: normal;
+}
+
+.todo-list__item__edit-btn,
+.todo-list__item__privacy-btn {
+  #{$link-hover-focus} {
+    color: $zc-blue;
+  }
+}
+
+.todo-list__item__notes {
+  color: $zc-gray-80;
+  margin-top: to-rem(get-deep($list-group-item-config, 'padding.lg.top'));
+}
+
+.todo-list__item__delete-btn {
+  #{$link-hover-focus} {
+    color: $zc-orange;
+  }
+}
+
+// ----------------------------------------------------
+//  FILTER
+// ----------------------------------------------------
+
+.todo-list__filter .checkbox {
+  width: 100%;
+}
+
+@include breakpoint('screen' $max-app-width) {
+  .todo-list__filter .checkbox {
+    display: inline-block;
+    margin: 0 1rem;
+    width: auto;
+  }
+}
+
+.login-prompt {
+.todo-list__item__edit-btn,
+.todo-list__item__privacy-btn {
+  #{$link-hover-focus} {
+    color: $zc-green;
+  }
+}
+
+  color: $zc-gray-80;
+  background-color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.login-prompt p {
+  margin: 0;
+}
