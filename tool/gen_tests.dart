@@ -4,7 +4,6 @@ import 'package:args/args.dart';
 import 'package:dart_dev/dart_dev.dart';
 
 class GenTestRunner extends DevTool {
-  
   final ArgParser argParser = ArgParser()
     ..addSeparator('======= Generated Runner Options')
     ..addOption(
@@ -21,7 +20,6 @@ class GenTestRunner extends DevTool {
 
   @override
   int run([DevToolExecutionContext context]) {
-  
     context ??= DevToolExecutionContext();
 
     final configs = [
@@ -35,7 +33,7 @@ class GenTestRunner extends DevTool {
           dartHeaders: [
             //"// ignore_for_file: directives_ordering",
             //"import 'package:react/react_client.dart' as react_client;",
-            "import 'package:web_skin/web_skin.dart';",// as ui_core;",
+            "import 'package:web_skin/web_skin.dart';", // as ui_core;",
             "import 'package:platform_detect/decorator.dart';",
             "import 'package:web_skin_dart/ui_core.dart';"
             //"import 'package:over_react/over_react.dart' as over_react;",
