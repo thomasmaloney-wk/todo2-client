@@ -9,7 +9,8 @@ import '../actions.dart';
 // ignore: uri_has_not_been_generated
 part 'create_todo_input.over_react.g.dart';
 
-UiFactory<CreateTodoInputProps> CreateTodoInput = _$CreateTodoInput; // ignore: undefined_identifier
+UiFactory<CreateTodoInputProps> CreateTodoInput =
+    _$CreateTodoInput; // ignore: undefined_identifier
 
 mixin CreateTodoInputProps on UiProps {
   TodoActions actions;
@@ -19,7 +20,8 @@ mixin CreateTodoInputState on UiState {
   String newTodoDescription;
 }
 
-class CreateTodoInputComponent extends UiStatefulComponent2<CreateTodoInputProps, CreateTodoInputState> {
+class CreateTodoInputComponent
+    extends UiStatefulComponent2<CreateTodoInputProps, CreateTodoInputState> {
   @override
   get defaultProps => (newProps());
 
@@ -27,7 +29,7 @@ class CreateTodoInputComponent extends UiStatefulComponent2<CreateTodoInputProps
   get initialState => (newState()..newTodoDescription = '');
 
   @override
-  render() { 
+  render() {
     return (Form()
       ..className = 'create-todo-input'
       ..onSubmit = _createTodo
@@ -53,6 +55,8 @@ class CreateTodoInputComponent extends UiStatefulComponent2<CreateTodoInputProps
   }
 
   _updateNewTodoDescription(e) {
-    setState(newState()..newTodoDescription = (e.target as TextInputElement).value);
+    setState(
+        newState()..newTodoDescription = (e.target as TextInputElement).value
+        );
   }
 }

@@ -1,0 +1,11 @@
+# Dart 2 has issues with memory when chain_stack_traces is set to true, resulting in test run times up to 4x longer
+# For longer stack traces to debug failing tests, you can set this to true.
+# https://github.com/dart-lang/test/issues/1031 for more information.
+chain_stack_traces: false
+
+paths:
+  - test/unit/generated_runner_test.dart
+
+platforms:
+  - chrome
+  - vm

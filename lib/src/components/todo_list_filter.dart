@@ -6,7 +6,8 @@ import '../actions.dart';
 // ignore: uri_has_not_been_generated
 part 'todo_list_filter.over_react.g.dart';
 
-UiFactory<TodoListFilterProps> TodoListFilter = _$TodoListFilter; // ignore: undefined_identifier
+UiFactory<TodoListFilterProps> TodoListFilter =
+    _$TodoListFilter; // ignore: undefined_identifier
 
 mixin TodoListFilterProps on UiProps {
   TodoActions actions;
@@ -26,7 +27,7 @@ class TodoListFilterComponent extends UiComponent2<TodoListFilterProps> {
   );
 
   @override
-  render() { 
+  render() {
     return (Dom.div()..className = 'todo-list__filter')(
       (ToggleInputGroup()
         ..groupLabel = 'Todo List Filters'

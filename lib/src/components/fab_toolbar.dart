@@ -6,7 +6,8 @@ import 'package:web_skin_dart/ui_components.dart';
 // ignore: uri_has_not_been_generated
 part 'fab_toolbar.over_react.g.dart';
 
-UiFactory<FabToolbarProps> FabToolbar = _$FabToolbar; // ignore: undefined_identifier
+UiFactory<FabToolbarProps> FabToolbar =
+    _$FabToolbar; // ignore: undefined_identifier
 
 mixin FabToolbarProps on UiProps {
   dynamic buttonContent;
@@ -16,7 +17,8 @@ mixin FabToolbarState on UiState {
   bool isOpen;
 }
 
-class FabToolbarComponent extends UiStatefulComponent2<FabToolbarProps, FabToolbarState> 
+class FabToolbarComponent
+    extends UiStatefulComponent2<FabToolbarProps, FabToolbarState>
     with RootCloseHandlersMixin {
   @override
   get defaultProps => (newProps());
@@ -39,7 +41,7 @@ class FabToolbarComponent extends UiStatefulComponent2<FabToolbarProps, FabToolb
   }
 
   @override
-  render() { 
+  render() {
     var classes = forwardingClassNameBuilder()
       ..add('fab-toolbar fab-toolbar--primary')
       ..add('fab-toolbar--open', state.isOpen)

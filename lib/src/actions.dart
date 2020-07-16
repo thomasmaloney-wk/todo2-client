@@ -8,7 +8,7 @@ class TodoActions extends Disposable {
   final Action<Todo> deleteTodo = Action<Todo>();
   final Action<Todo> editTodo = Action<Todo>();
   final Action<Todo> reopenTodo = Action<Todo>();
-  final Action<Todo> selectTodo = Action<Todo>();  
+  final Action<Todo> selectTodo = Action<Todo>();
   final Action<Null> toggleIncludeComplete = Action<Null>();
   final Action<Null> toggleIncludeIncomplete = Action<Null>();
   final Action<Null> toggleIncludePrivate = Action<Null>();

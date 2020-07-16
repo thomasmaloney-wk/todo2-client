@@ -18,7 +18,8 @@ mixin TodoAppPropsMixin on UiProps {
   bool withFilter;
 }
 
-class TodoAppProps = UiProps with FluxUiPropsMixin<TodoActions,TodoStore>, TodoAppPropsMixin;
+class TodoAppProps = UiProps
+    with FluxUiPropsMixin<TodoActions, TodoStore>, TodoAppPropsMixin;
 
 class TodoAppComponent extends FluxUiComponent2<TodoAppProps> {
   @override
@@ -28,7 +29,7 @@ class TodoAppComponent extends FluxUiComponent2<TodoAppProps> {
   );
 
   @override
-  render() { 
+  render() {
     var createTodoInput;
     var todoListFilter;
     var todoList;

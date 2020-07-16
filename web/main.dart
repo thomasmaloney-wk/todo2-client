@@ -1,6 +1,7 @@
 import 'dart:html';
 
-import 'package:messaging_sdk/messaging_sdk.dart' show FrontendConfig, NatsMessagingClient;
+import 'package:messaging_sdk/messaging_sdk.dart'
+    show FrontendConfig, NatsMessagingClient;
 import 'package:react/react_client.dart' show setClientConfiguration;
 import 'package:react/react_dom.dart' as react_dom;
 import 'package:todo2_client/todo_client.dart' show TodoModule;
@@ -32,8 +33,8 @@ main() async {
 
   // Grab the main to-do UI, but hide the filter since we'll be placing a
   // variation of the filter in the workspaces sidebar.
-  var mainContent = todoModule.components
-      .content(currentUserId: session.context.userResourceId, withFilter: false);
+  var mainContent = todoModule.components.content(
+      currentUserId: session.context.userResourceId, withFilter: false);
 
   // Construct the entire application component to render using the shell's
   // content factory.

@@ -6,7 +6,7 @@ import 'package:todo2_client/src/actions.dart';
 class TodoStore extends Store {
   final TodoActions _actions;
   final TodoSdk _sdk;
-  
+
   Map<String, Todo> _todosMap = {};
 
   String _activeTodoId;

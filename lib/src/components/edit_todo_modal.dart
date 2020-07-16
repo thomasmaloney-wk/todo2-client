@@ -8,9 +8,9 @@ import '../actions.dart';
 part 'edit_todo_modal.over_react.g.dart';
 
 @Factory()
-UiFactory<EditTodoModalProps> EditTodoModal = 
+UiFactory<EditTodoModalProps> EditTodoModal =
     // ignore: undefined_identifier
-    _$EditTodoModal; 
+    _$EditTodoModal;
 
 @Props()
 class _$EditTodoModalProps extends ModalProps {
@@ -59,17 +59,16 @@ class EditTodoModalComponent extends UiComponent2<EditTodoModalProps> {
             ..skin = ButtonSkin.SUCCESS
             ..pullRight = true
             ..addTestId('editTodoModal.submitButton')
-          )('Save')
-        )
-      )
+          )('Save'),
+        ),
+      ),
     );
   }
 
   void _save(SyntheticFormEvent event) {
     final modifiedTodo = props.todo.change(
-      description: _titleInputRef.getValue(),
-      notes: _notesInputRef.getValue()
-    );
+        description: _titleInputRef.getValue(),
+        notes: _notesInputRef.getValue());
 
     props.actions.updateTodo(modifiedTodo);
     if (props.onRequestHide != null) props.onRequestHide(event);

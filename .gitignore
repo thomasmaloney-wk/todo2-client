@@ -19,3 +19,22 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+# pub stuff
+test/unit/generated_runner_test.*
+
+# Directory created by dartdoc
+doc/api/
+
+# Directory created by code coverage analyzer
+coverage/
+
+# Directories created by the test shell Skynet run locally
+artifacts/
+test-results/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws

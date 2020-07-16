@@ -9,7 +9,8 @@ import 'fab_toolbar.dart';
 // ignore: uri_has_not_been_generated
 part 'todo_list_fab.over_react.g.dart';
 
-UiFactory<TodoListFabProps> TodoListFab = _$TodoListFab; // ignore: undefined_identifier
+UiFactory<TodoListFabProps> TodoListFab =
+    _$TodoListFab; // ignore: undefined_identifier
 
 mixin TodoListFabProps on UiProps {
   TodoActions actions;
@@ -21,7 +22,7 @@ class TodoListFabComponent extends UiComponent2<TodoListFabProps> {
   get defaultProps => (newProps());
 
   @override
-  render() { 
+  render() {
     return (FabToolbar()
       ..modifyProps(addUnconsumedProps)
       ..buttonContent = (Icon()..glyph = IconGlyph.FILTER)()

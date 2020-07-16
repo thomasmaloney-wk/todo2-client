@@ -4,7 +4,8 @@ import 'package:web_skin_dart/ui_components.dart';
 // ignore: uri_has_not_been_generated
 part 'local_shell.over_react.g.dart';
 
-UiFactory<TodoLocalShellProps> TodoLocalShell = _$TodoLocalShell; // ignore: undefined_identifier
+UiFactory<TodoLocalShellProps> TodoLocalShell =
+    _$TodoLocalShell; // ignore: undefined_identifier
 
 mixin TodoLocalShellProps on UiProps {}
 
@@ -30,5 +31,5 @@ class TodoLocalShellComponent extends UiComponent2<TodoLocalShellProps> {
         (Block()..addTestId('todoLocalShell.block'))(props.children),
       ),
     );
-   }
+  }
 }

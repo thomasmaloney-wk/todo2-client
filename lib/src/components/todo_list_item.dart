@@ -9,7 +9,8 @@ import 'package:web_skin_dart/ui_components/list_group.dart';
 // ignore: uri_has_not_been_generated
 part 'todo_list_item.over_react.g.dart';
 
-UiFactory<TodoListItemProps> TodoListItem = _$TodoListItem; // ignore: undefined_identifier
+UiFactory<TodoListItemProps> TodoListItem =
+    _$TodoListItem; // ignore: undefined_identifier
 
 mixin TodoListItemProps on UiProps {
   TodoActions actions;
@@ -23,7 +24,8 @@ mixin TodoListItemState on UiState {
   bool isChildFocused;
 }
 
-class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, TodoListItemState> {
+class TodoListItemComponent
+    extends UiStatefulComponent2<TodoListItemProps, TodoListItemState> {
   @override
   get defaultProps => (newProps()
     ..currentUserId = ''
@@ -38,13 +40,13 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
   );
 
   @override
-  render() { 
+  render() {
     final classes = forwardingClassNameBuilder()
       ..add('todo-list__item')
       ..add('todo-list__item--complete', props.todo.isCompleted)
       ..add('todo-list__item--incomplete', !props.todo.isCompleted)
       ..add('todo-list__item--expanded', props.isExpanded);
-    
+
     return (ListGroupItem()
       ..className = classes.toClassName()
       ..onMouseEnter = _handleItemMouseEnter
@@ -56,11 +58,12 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       Dom.div()(
         Block()(
           (Block()
-            ..className = 'todo-list__item__block todo-list__item__checkbox-block'
+            ..className =
+                'todo-list__item__block todo-list__item__checkbox-block'
             ..shrink = true
             ..addTestId('todoListItem.checkboxBlock')
           )(
-            _renderTaskCheckbox()
+            _renderTaskCheckbox(),
           ),
           (BlockContent()
             ..className = 'todo-list__item__block todo-list__item__header-block'
@@ -69,7 +72,7 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
             ..overflow = true
             ..addTestId('todoListItem.headerBlockContent')
           )(
-            _renderTaskHeader()
+            _renderTaskHeader(),
           ),
           (BlockContent()
             ..className = 'todo-list__item__block todo-list__item__labels-block'
@@ -78,20 +81,21 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
             ..overflow = true
             ..addTestId('todoListItem.labelsBlockContent')
           )(
-            _renderTaskLabels()
+            _renderTaskLabels(),
           ),
           (BlockContent()
-            ..className = 'todo-list__item__block todo-list__item__controls-block'
+            ..className =
+                'todo-list__item__block todo-list__item__controls-block'
             ..collapse = BlockCollapse.VERTICAL | BlockCollapse.RIGHT
             ..shrink = true
             ..overflow = true
             ..addTestId('todoListItem.controlsBlockContent')
           )(
-            _renderTaskControlsToolbar()
-          )
-        )
+            _renderTaskControlsToolbar(),
+          ),
+        ),
       ),
-      _renderTaskNotes()
+      _renderTaskNotes(),
     );
   }
 
@@ -113,12 +117,13 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       ..onClick = _toggleExpansion
       ..addTestId('todoListItem.header')
     )(
-      props.todo.description
+      props.todo.description,
     );
   }
 
   ReactElement _renderTaskLabels() {
-    return (Label()..addTestId('todoListItem.label'))(props.todo.isPublic ? 'public' : 'private');
+    return (Label()..addTestId('todoListItem.label'))(
+        props.todo.isPublic ? 'public' : 'private');
   }
 
   ReactElement _renderTaskNotes() {
@@ -127,7 +132,9 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       ..className = 'todo-list__item__notes'
       ..addTestId('todoListItem.row2')
     )(
-      _hasNotes ? props.todo.notes :(Dom.em()..className='text-muted')('No notes.')
+      _hasNotes
+          ? props.todo.notes
+          : (Dom.em()..className = 'text-muted')('No notes.'),
     );
   }
 
@@ -136,14 +143,14 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       ..skin = ButtonSkin.VANILLA
       ..size = ButtonSize.XSMALL
       ..noText = true;
-    
+
     final edit = (_buttonFactory()
       ..className = 'todo-list__item__edit-btn'
       ..onClick = _edit
       ..isDisabled = !_canModify
       ..addTestId('todoListItem.editButton')
     )(
-      (Icon()..glyph = IconGlyph.PENCIL)()
+      (Icon()..glyph = IconGlyph.PENCIL)(),
     );
 
     final privacy = (_buttonFactory()
@@ -152,7 +159,10 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       ..isDisabled = !_canModify || props.todo.isCompleted
       ..addTestId('todoListItem.privacyButton')
     )(
-      (Icon()..glyph = props.todo.isPublic ? IconGlyph.EYE_SHOW : IconGlyph.EYE_HIDE)()
+      (Icon()
+        ..glyph =
+            props.todo.isPublic ? IconGlyph.EYE_SHOW : IconGlyph.EYE_HIDE
+      )(),
     );
 
     final delete = (_buttonFactory()
@@ -161,7 +171,7 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
       ..isDisabled = !_canModify || props.todo.isCompleted
       ..addTestId('todoListItem.deleteButton')
     )(
-      (Icon()..glyph = IconGlyph.TRASH)()
+      (Icon()..glyph = IconGlyph.TRASH)(),
     );
 
     return (ButtonToolbar()
@@ -171,11 +181,12 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
     )(
       edit,
       privacy,
-      delete
+      delete,
     );
   }
 
-  bool get _canModify => props.currentUserId == null || props.currentUserId == props.todo.userID;
+  bool get _canModify =>
+      props.currentUserId == null || props.currentUserId == props.todo.userID;
   bool get _hasNotes => props.todo?.notes?.isNotEmpty ?? false;
   bool get _isHovered => state.isHovered || state.isChildFocused;
 
@@ -199,7 +210,8 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
 
   void _toggleCompletion(SyntheticFormEvent event) {
     final newCompletionStatus = !props.todo.isCompleted;
-    props.actions.updateTodo(props.todo.change(isCompleted: newCompletionStatus));
+    props.actions
+        .updateTodo(props.todo.change(isCompleted: newCompletionStatus));
   }
 
   void _handleItemMouseEnter(SyntheticMouseEvent event) {
@@ -216,7 +228,8 @@ class TodoListItemComponent extends UiStatefulComponent2<TodoListItemProps, Todo
 
   void _handleChildBlur(SyntheticFocusEvent event) {
     final newlyFocusedTarget = event.relatedTarget;
-    if (newlyFocusedTarget is Element && findDomNode(this).contains(newlyFocusedTarget)) {
+    if (newlyFocusedTarget is Element &&
+        findDomNode(this).contains(newlyFocusedTarget)) {
       return;
     }
 

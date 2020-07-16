@@ -25,13 +25,13 @@ class TodoListComponent extends UiComponent2<TodoListProps> {
   );
 
   @override
-  render() { 
+  render() {
     if (props.todos.isEmpty) {
       return (EmptyView()
         ..header = 'No todos to show'
         ..addTestId('todoList.emptyView')
       )(
-        'Create one or adjust the filters.'
+        'Create one or adjust the filters.',
       );
     }
 
@@ -50,7 +50,7 @@ class TodoListComponent extends UiComponent2<TodoListProps> {
       ..size = ListGroupSize.LARGE
       ..addTestId('todoList.listGroup')
     )(
-      todoItems
+      todoItems,
     );
   }
 }
