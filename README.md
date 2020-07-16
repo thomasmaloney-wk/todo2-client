@@ -15,11 +15,12 @@ Since (reasonably) the Java server is not deployed to wk-dev or anything, to run
 
 To run this, you will need to have these tools/services installed:
 
+- `dart` [\(Click Here for Instructions\)](https://dev.workiva.net/docs/teams/platform/application-frameworks/front-end-dev-training/dart#installation)
+- `frugal` [\(Click Here for Instructions\)](https://github.com/Workiva/frugal#installation)
 - `gnatsd` (Can be installed by running `brew install gnatsd`)
 - `messaging-frontend` [\(Click Here For Instructions\)](https://github.com/Workiva/messaging-frontend#usage)
-- `todo2-service` [\(Click Here For Instructions\)](https://github.com/thomasmaloney-wk/todo2-service#todo2-service)
+- `todo2-service` [\(Click Here For Instructions\)](https://github.com/thomasmaloney-wk/todo2-service#running-locally)
 
-Also the standard dart tools should be installed.
 
 One thing you should also do is put 
 ```bash
@@ -27,13 +28,37 @@ export IAM_HOST="https://wk-dev.wdesk.org"
 ```
 in your `.bashrc` or `.zshrc` profile.
 
-Now to run this:
+Then once everything is set up, run the following commands:
 
-1. Open a terminal and run `gnatsd`
+```bash
+$ gnatsd
+
+# in another terminal window:
+$ messaging-frontend -pubkey-urls="https://wk-dev.wdesk.org/iam/oauth2/v2.0/certs" -dev-mode
+
+# then in yet another terminal window
+# in the directory you cloned todo2-service:
+$ make serve
+
+# If you want to skip validation, 
+# prepend IAM_UNSAFE=true to the above command
+
+# then in another terminal window in 
+# the directory you cloned todo2-client:
+$ make run
+```
+
+<!-- 1. Open a terminal and run `gnatsd`
 2. Open another terminal and run `messaging-frontend -pubkey-urls="https://wk-dev.wdesk.org/iam/oauth2/v2.0/certs" -dev-mode`
 3. Open yet another terminal and navigate to the directory you cloned `todo2-service` and run `mvn exec:java -Dexec.mainClass=com.workiva.todo2.NatsServer`
 (optionally set `IAM_UNSAFE=true` to skip validation)
-4. Open another terminal and navigate to where ever you cloned this repo and run `make run`
+4. Open another terminal and navigate to where ever you cloned this repo and run `make run` -->
+
+## Unit Tests
+### Running unit tests
+```bash
+$ pub run dart_dev test
+```
 
 ## See Also
 - [Todo2 Service Repo](https://github.com/thomasmaloney-wk/todo2-service)
