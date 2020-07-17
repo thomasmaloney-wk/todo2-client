@@ -7,6 +7,7 @@ import 'package:react/react_dom.dart' as react_dom;
 import 'package:todo2_client/todo_client.dart' show TodoModule;
 import 'package:todo2_sdk/todo2_sdk.dart';
 import 'package:w_session/w_session.dart';
+import 'package:wdesk_sdk/experience_framework.dart';
 import 'package:wdesk_sdk/truss.dart';
 // Added to enable React component debugging via $r in the Dartium dev tools.
 // ignore: unused_import
@@ -16,7 +17,7 @@ main() async {
   setClientConfiguration();
 
   // Setup the session and load the shell (which handles starting the session).
-  final session = Session(sessionHost: Uri.parse('https://wk-dev.wdesk.org'));
+  final session = Session(sessionHost: Environment.current.iamHost);
   final shell = WorkspacesShell(session: session);
   await shell.load();
 
