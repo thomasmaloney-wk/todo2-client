@@ -1,0 +1,65 @@
+targets:
+  $default:
+    builders:
+      build_web_compilers|entrypoint:
+        generate_for:
+          include:
+            - "test/unit/generated_runner_test*.dart"
+            - "web/*.dart"
+            #- "test/integration/client/**.browser_test.dart"
+        release_options:
+          dart2js_args:
+            - --no-minify
+            - -O3
+            - --csp
+      wdesk_sdk_builders|wdesk_sdk_builder:
+        enabled: true
+
+# targets:
+#   $default:
+#     sources:
+#       include:
+#         - lib/**
+#         - web/**
+#         - pubspec.*
+#         - $package$
+#         - test/**
+
+#targets:
+#   $default:
+#     sources:
+#       exclude:
+#         - "tool/**"
+#         #- "lib/src/test/**"
+#         - ".dart_tool"
+#         - ".pub"
+
+# targets:
+#   $default:
+#     builders:
+#       wdesk_sdk_builders|wdesk_sdk_builder:
+#         enabled: false
+#       build_web_compilers|entrypoint:
+#         generate_for:
+#           exclude:
+#             - "tool/**"
+#             #- "lib/src/test/**"
+#             - ".dart_tool"
+#             - ".pub"
+          # include:
+          #   - "test/unit/generated_runner_test*.dart"
+          #   - "web/*.dart"
+        # release_options:
+        #   dart2js_args:
+        #     - -O3
+        #     - --csp
+
+# Hack-y solution for source maps pending more permanent solution:
+# https://github.com/dart-lang/build/issues/1779
+global_options:
+  build_web_compilers|dart_source_cleanup:
+    release_options:
+      enabled: false
+  build_web_compilers|dart2js_archive_extractor:
+    release_options:
+      filter_outputs: false

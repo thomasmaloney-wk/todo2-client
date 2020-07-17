@@ -2,7 +2,7 @@
   max-width: 60rem;
   margin: 0 auto;
 }
-  
+
 .todo-shell {
   overflow: hidden;
 }
@@ -18,29 +18,25 @@
 .todo-list__item {
   background-color: #fff;
 }
-
 .todo-list__item--expanded .todo-list__item__header-block {
   font-weight: bold;
 }
-
 .todo-list__item--complete {
   background: none;
-  color: #b2b2b2;
+  color: #616161;
 }
 
-.todo-list__item__controls-toolbar[aria-hidden="true"] {
+.todo-list__item__controls-toolbar[aria-hidden=true] {
   visibility: hidden;
 }
 
 .todo-list__item__block {
-  -ms-flex-item-align: center ;
-  align-self: center ;
+  align-self: center;
 }
 
 .todo-list__item__checkbox-block .checkbox {
   margin: 0;
 }
-
 .todo-list__item__checkbox-block .checkbox label:before,
 .todo-list__item__checkbox-block .checkbox label:after {
   top: 0;
@@ -51,8 +47,8 @@
 }
 
 .todo-list__item__labels-block .label {
-  background-color: #f3f3f3;
-  color: #b2b2b2;
+  background-color: #ededed;
+  color: #616161;
   font-weight: normal;
 }
 
@@ -63,7 +59,7 @@
 }
 
 .todo-list__item__notes {
-  color: #8a8a8a;
+  color: #616161;
   margin-top: 1.1rem;
 }
 
@@ -82,14 +78,12 @@
     width: auto;
   }
 }
-
 .login-prompt {
-  color: #8a8a8a;
+  color: #616161;
   background-color: #fff;
   font-size: 1.6rem;
   text-align: center;
 }
-
 .login-prompt .todo-list__item__edit-btn:hover, .login-prompt .todo-list__item__edit-btn:focus,
 .login-prompt .todo-list__item__privacy-btn:hover,
 .login-prompt .todo-list__item__privacy-btn:focus {
@@ -113,14 +107,12 @@
   transition-timing-function: ease;
   transition-property: box-shadow, width, height, margin, border-radius, background-color;
   box-shadow: 0 0.15rem 0.4rem rgba(0, 0, 0, 0.24), 0 0.15rem 0.6rem rgba(0, 0, 0, 0.12);
-  border: transparent solid .1rem;
+  border: transparent solid 0.1rem;
   overflow: hidden;
 }
-
 .fab-toolbar:hover, .fab-toolbar:focus {
   box-shadow: 0 0.3rem 1.2rem rgba(0, 0, 0, 0.23), 0 0.3rem 1.2rem rgba(0, 0, 0, 0.16);
 }
-
 .fab-toolbar:focus {
   border: #33a9ff solid 0.1rem;
   outline: none;
@@ -152,12 +144,10 @@
   margin: 0;
   border-radius: 0;
 }
-
 .fab-toolbar--open .fab-toolbar__content {
   opacity: 0;
   z-index: 0;
 }
-
 .fab-toolbar--open .fab-toolbar--open__content {
   opacity: 1;
   z-index: 1;
@@ -166,11 +156,11 @@
 .fab-toolbar--primary {
   background: #66cc00;
 }
-
 .fab-toolbar--primary.fab-toolbar--open {
   background: white;
 }
-
 .fab-toolbar--primary .fab-toolbar__content {
   color: white;
 }
+
+/*# sourceMappingURL=styles.css.map */

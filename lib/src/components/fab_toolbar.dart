@@ -28,7 +28,7 @@ class FabToolbarComponent
 
   @override
   getSnapshotBeforeUpdate(Map prevProps, Map prevState) {
-    super.getSnapshotBeforeUpdate(prevProps, prevState);
+    //super.getSnapshotBeforeUpdate(prevProps, prevState);
 
     var tNextState = typedStateFactory(state);
     tNextState.isOpen ? bindRootCloseHandlers() : unbindRootCloseHandlers();

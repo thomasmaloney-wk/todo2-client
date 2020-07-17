@@ -23,6 +23,7 @@ dependencies:
     version: ^6.68.0
   w_flux: ^2.10.4
   w_module: ^2.0.10
+  w_common: ^1.20.1
   wdesk_sdk:
     hosted:
       name: wdesk_sdk

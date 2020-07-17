@@ -47,7 +47,7 @@ $ make serve
 # the directory you cloned todo2-client:
 $ make run
 ```
-
+You can then view the app in your browser at http://localhost:8080
 <!-- 1. Open a terminal and run `gnatsd`
 2. Open another terminal and run `messaging-frontend -pubkey-urls="https://wk-dev.wdesk.org/iam/oauth2/v2.0/certs" -dev-mode`
 3. Open yet another terminal and navigate to the directory you cloned `todo2-service` and run `mvn exec:java -Dexec.mainClass=com.workiva.todo2.NatsServer`

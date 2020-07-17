@@ -19,7 +19,10 @@ final Map<String, DevTool> config = {
   'test': CompoundTool()
     ..addTool(GenTestRunner())
     ..addTool(TestTool()..buildArgs = ['--delete-conflicting-outputs'],
-        argMapper: takeAllArgs)
+        argMapper: takeAllArgs),
+  'sass': SassTool()
+    //..compileSassArgs = ['--watchDirs', 'lib/styles']
+    ..sourceDir = 'lib/sass/'
 };
 
 bool _isGenerated(String path) =>
