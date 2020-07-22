@@ -13,7 +13,7 @@ targets:
             - -O3
             - --csp
       wdesk_sdk_builders|wdesk_sdk_builder:
-        enabled: true
+        enabled: false
 
 # targets:
 #   $default:
