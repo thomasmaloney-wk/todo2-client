@@ -27,20 +27,20 @@ mixin TodoListItemState on UiState {
 class TodoListItemComponent
     extends UiStatefulComponent2<TodoListItemProps, TodoListItemState> {
   @override
-  get defaultProps => (newProps()
+  Map<dynamic, dynamic> get defaultProps => (newProps()
     ..currentUserId = ''
     ..isExpanded = false
     ..todo = null
   );
 
   @override
-  get initialState => (newState()
+  Map<dynamic, dynamic> get initialState => (newState()
     ..isHovered = false
     ..isChildFocused = false
   );
 
   @override
-  render() {
+  ReactElement render() {
     final classes = forwardingClassNameBuilder()
       ..add('todo-list__item')
       ..add('todo-list__item--complete', props.todo.isCompleted)
@@ -123,7 +123,8 @@ class TodoListItemComponent
 
   ReactElement _renderTaskLabels() {
     return (Label()..addTestId('todoListItem.label'))(
-        props.todo.isPublic ? 'public' : 'private');
+      props.todo.isPublic ? 'public' : 'private',
+    );
   }
 
   ReactElement _renderTaskNotes() {

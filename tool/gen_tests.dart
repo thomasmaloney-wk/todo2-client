@@ -4,6 +4,7 @@ import 'package:args/args.dart';
 import 'package:dart_dev/dart_dev.dart';
 
 class GenTestRunner extends DevTool {
+  @override
   final ArgParser argParser = ArgParser()
     ..addSeparator('======= Generated Runner Options')
     ..addOption(
@@ -27,7 +28,7 @@ class GenTestRunner extends DevTool {
           directory: 'test/unit',
           env: Environment.browser,
           genHtml: true,
-          check: context.argResults.wasParsed('check') as bool,
+          check: context.argResults.wasParsed('check'),
           //fileFilter: context.argResults['file'] ?? defaultFileFilter,
           filename: 'generated_runner_test',
           dartHeaders: [

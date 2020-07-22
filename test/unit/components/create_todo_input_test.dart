@@ -4,7 +4,7 @@ import 'package:web_skin_dart/ui_components.dart';
 
 import 'package:todo2_client/src/components/create_todo_input.dart';
 
-main() {
+void main() {
   group('CreateTodoInput', () {
     test('renders a Form with correct props', () {
       var jacket = mount(CreateTodoInput()());

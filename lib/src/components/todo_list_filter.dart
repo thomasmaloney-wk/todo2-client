@@ -19,7 +19,7 @@ mixin TodoListFilterProps on UiProps {
 
 class TodoListFilterComponent extends UiComponent2<TodoListFilterProps> {
   @override
-  get defaultProps => (newProps()
+  Map<dynamic, dynamic> get defaultProps => (newProps()
     ..includeComplete = false
     ..includeIncomplete = false
     ..includePrivate = false
@@ -27,7 +27,7 @@ class TodoListFilterComponent extends UiComponent2<TodoListFilterProps> {
   );
 
   @override
-  render() {
+  ReactElement render() {
     return (Dom.div()..className = 'todo-list__filter')(
       (ToggleInputGroup()
         ..groupLabel = 'Todo List Filters'

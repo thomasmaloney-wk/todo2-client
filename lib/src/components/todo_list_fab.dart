@@ -19,10 +19,10 @@ mixin TodoListFabProps on UiProps {
 
 class TodoListFabComponent extends UiComponent2<TodoListFabProps> {
   @override
-  get defaultProps => (newProps());
+  Map<dynamic, dynamic> get defaultProps => newProps();
 
   @override
-  render() {
+  ReactElement render() {
     return (FabToolbar()
       ..modifyProps(addUnconsumedProps)
       ..buttonContent = (Icon()..glyph = IconGlyph.FILTER)()
@@ -32,22 +32,22 @@ class TodoListFabComponent extends UiComponent2<TodoListFabProps> {
           name: 'Your Todos',
           glyph: IconGlyph.USER,
           isActive: props.store.includePrivate,
-          onChange: ((_) => props.actions.toggleIncludePrivate())),
+          onChange: (_) => props.actions.toggleIncludePrivate()),
       _renderFabButton(
           name: 'Public Todos',
           glyph: IconGlyph.USERS,
           isActive: props.store.includePublic,
-          onChange: ((_) => props.actions.toggleIncludePublic())),
+          onChange: (_) => props.actions.toggleIncludePublic()),
       _renderFabButton(
           name: 'Unfinished Todos',
           glyph: IconGlyph.TIE_OUT_UNTIED,
           isActive: props.store.includeIncomplete,
-          onChange: ((_) => props.actions.toggleIncludeIncomplete())),
+          onChange: (_) => props.actions.toggleIncludeIncomplete()),
       _renderFabButton(
           name: 'Finished Todos',
           glyph: IconGlyph.TIE_OUT_TIED,
           isActive: props.store.includeComplete,
-          onChange: ((_) => props.actions.toggleIncludeComplete())),
+          onChange: (_) => props.actions.toggleIncludeComplete()),
     );
   }
 

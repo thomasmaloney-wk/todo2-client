@@ -95,7 +95,7 @@ class TodoStore extends Store {
   }
 
   _selectTodo(Todo todo) {
-    _activeTodoId = todo?.id ?? null;
+    _activeTodoId = todo?.id;
   }
 
   _initialize() async {

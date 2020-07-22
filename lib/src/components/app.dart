@@ -23,18 +23,16 @@ class TodoAppProps = UiProps
 
 class TodoAppComponent extends FluxUiComponent2<TodoAppProps> {
   @override
-  get defaultProps => (newProps()
+  Map<dynamic, dynamic> get defaultProps => (newProps()
     ..currentUserId = ''
     ..withFilter = true
   );
 
   @override
-  render() {
-    var createTodoInput;
-    var todoListFilter;
-    var todoList;
+  ReactElement render() {
+    ReactElement todoListFilter;
 
-    createTodoInput = (BlockContent()
+    final createTodoInput = (BlockContent()
       ..shrink = true
       ..addTestId('app.createTodoInputWrapper')
     )(
@@ -59,7 +57,7 @@ class TodoAppComponent extends FluxUiComponent2<TodoAppProps> {
       );
     }
 
-    todoList = (Block()
+    final todoList = (Block()
       // Add a top gutter and collapse the content's top padding
       // so that there's still space above when the content is scrolled.
       ..gutter = BlockGutter.TOP

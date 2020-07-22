@@ -21,13 +21,13 @@ class FabToolbarComponent
     extends UiStatefulComponent2<FabToolbarProps, FabToolbarState>
     with RootCloseHandlersMixin {
   @override
-  get defaultProps => (newProps());
+  Map<dynamic, dynamic> get defaultProps => newProps();
 
   @override
-  get initialState => (newState()..isOpen = false);
+  Map<dynamic, dynamic> get initialState => (newState()..isOpen = false);
 
   @override
-  getSnapshotBeforeUpdate(Map prevProps, Map prevState) {
+  dynamic getSnapshotBeforeUpdate(Map prevProps, Map prevState) {
     //super.getSnapshotBeforeUpdate(prevProps, prevState);
 
     var tNextState = typedStateFactory(state);
@@ -41,7 +41,7 @@ class FabToolbarComponent
   }
 
   @override
-  render() {
+  ReactElement render() {
     var classes = forwardingClassNameBuilder()
       ..add('fab-toolbar fab-toolbar--primary')
       ..add('fab-toolbar--open', state.isOpen)

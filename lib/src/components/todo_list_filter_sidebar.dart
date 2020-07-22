@@ -20,10 +20,10 @@ class TodoListFilterSidebarProps = UiProps
 class TodoListFilterSidebarComponent
     extends FluxUiComponent2<TodoListFilterSidebarProps> {
   @override
-  get defaultProps => (newProps());
+  Map<dynamic, dynamic> get defaultProps => newProps();
 
   @override
-  render() {
+  ReactElement render() {
     return WorkspacesMenu()(
       (WorkspacesMenuItem()
         ..active = true

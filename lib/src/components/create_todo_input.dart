@@ -23,13 +23,14 @@ mixin CreateTodoInputState on UiState {
 class CreateTodoInputComponent
     extends UiStatefulComponent2<CreateTodoInputProps, CreateTodoInputState> {
   @override
-  get defaultProps => (newProps());
+  Map<dynamic, dynamic> get defaultProps => newProps();
 
   @override
-  get initialState => (newState()..newTodoDescription = '');
+  Map<dynamic, dynamic> get initialState =>
+      (newState()..newTodoDescription = '');
 
   @override
-  render() {
+  ReactElement render() {
     return (Form()
       ..className = 'create-todo-input'
       ..onSubmit = _createTodo

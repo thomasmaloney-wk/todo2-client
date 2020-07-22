@@ -11,10 +11,10 @@ mixin TodoLocalShellProps on UiProps {}
 
 class TodoLocalShellComponent extends UiComponent2<TodoLocalShellProps> {
   @override
-  get defaultProps => (newProps());
+  Map<dynamic, dynamic> get defaultProps => newProps();
 
   @override
-  render() {
+  ReactElement render() {
     return (GridFrame()..addTestId('todoLocalShell.gridFrame'))(
       (VBlock()..addTestId('todoLocalShell.vBlock'))(
         (BlockContent()

@@ -1,0 +1,32 @@
+# Files and directories created by pub
+.packages
+.pub/
+build/
+packages
+pubspec.lock
+.dart_tool
+*.css
+test/unit/generated_runner_test.*
+
+# Files created by dart2js
+*.dart.js
+*.part.js
+*.js.deps
+*.js.map
+*.info.json
+
+# Directory created by dartdoc
+doc/api/
+
+# Directory created by code coverage analyzer
+coverage/
+
+# Directories created by the test shell Skynet run locally
+artifacts/
+test-results/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws

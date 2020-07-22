@@ -5,6 +5,11 @@ environment:
   sdk: '>=2.4.0 <3.0.0'
 
 dependencies:
+  app_intelligence:
+    hosted:
+      name: app_intelligence
+      url: https://pub.workiva.org
+    version: ^2.34.2
   meta: ^1.1.8
   messaging_sdk:
     hosted:

@@ -24,7 +24,7 @@ class EditTodoModalComponent extends UiComponent2<EditTodoModalProps> {
   TextInputComponent _notesInputRef;
 
   @override
-  render() {
+  ReactElement render() {
     return (Modal()
       ..modifyProps(addUnconsumedProps)
       ..header = 'Edit Todo'

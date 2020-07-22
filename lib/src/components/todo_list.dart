@@ -19,13 +19,13 @@ mixin TodoListProps on UiProps {
 
 class TodoListComponent extends UiComponent2<TodoListProps> {
   @override
-  get defaultProps => (newProps()
+  Map<dynamic, dynamic> get defaultProps => (newProps()
     ..todos = const []
     ..currentUserId = ''
   );
 
   @override
-  render() {
+  ReactElement render() {
     if (props.todos.isEmpty) {
       return (EmptyView()
         ..header = 'No todos to show'
