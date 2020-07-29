@@ -40,11 +40,12 @@ Future main() async {
   if (Environment.current.mockAuth) {
     MockSession.install();
     MockTransports.install(fallThrough: true);
-    MockSession.sessionHost = Uri.parse('http://localhost:8001');
+    MockSession.sessionHost = sessionHost;//Uri.parse('http://localhost:8001');
     MockSession.source.accountResourceId = 'QWNjb3VudB8xMTE';
     MockSession.source.membershipResourceId = 'TWVtYmVyc2hpcB8yMjI=';
     MockSession.source.userResourceId = 'V0ZVc2VyHzMzMw==';
     MockSession.source.email = 'jon.snow@workiva.com';
+    MockSession.source.name = 'Jon Snow';
     MockSession.source.membershipPreferences.enableWorkspaces = false;
     enableTestMode();
   } else if (Environment.current.isAutomated) {
