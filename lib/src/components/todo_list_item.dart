@@ -30,14 +30,12 @@ class TodoListItemComponent
   get defaultProps => (newProps()
     ..currentUserId = ''
     ..isExpanded = false
-    ..todo = null
-  );
+    ..todo = null);
 
   @override
   get initialState => (newState()
     ..isHovered = false
-    ..isChildFocused = false
-  );
+    ..isChildFocused = false);
 
   @override
   render() {
@@ -53,16 +51,14 @@ class TodoListItemComponent
       ..onMouseLeave = _handleItemMouseLeave
       ..onFocus = _handleChildFocus
       ..onBlur = _handleChildBlur
-      ..addTestId('todoListItem.listGroupItem')
-    )(
+      ..addTestId('todoListItem.listGroupItem'))(
       Dom.div()(
         Block()(
           (Block()
             ..className =
                 'todo-list__item__block todo-list__item__checkbox-block'
             ..shrink = true
-            ..addTestId('todoListItem.checkboxBlock')
-          )(
+            ..addTestId('todoListItem.checkboxBlock'))(
             _renderTaskCheckbox(),
           ),
           (BlockContent()
@@ -70,8 +66,7 @@ class TodoListItemComponent
             ..collapse = BlockCollapse.VERTICAL
             ..scroll = false
             ..overflow = true
-            ..addTestId('todoListItem.headerBlockContent')
-          )(
+            ..addTestId('todoListItem.headerBlockContent'))(
             _renderTaskHeader(),
           ),
           (BlockContent()
@@ -79,8 +74,7 @@ class TodoListItemComponent
             ..collapse = BlockCollapse.ALL
             ..shrink = true
             ..overflow = true
-            ..addTestId('todoListItem.labelsBlockContent')
-          )(
+            ..addTestId('todoListItem.labelsBlockContent'))(
             _renderTaskLabels(),
           ),
           (BlockContent()
@@ -89,8 +83,7 @@ class TodoListItemComponent
             ..collapse = BlockCollapse.VERTICAL | BlockCollapse.RIGHT
             ..shrink = true
             ..overflow = true
-            ..addTestId('todoListItem.controlsBlockContent')
-          )(
+            ..addTestId('todoListItem.controlsBlockContent'))(
             _renderTaskControlsToolbar(),
           ),
         ),
@@ -107,16 +100,14 @@ class TodoListItemComponent
       ..hideLabel = true
       ..value = ''
       ..onChange = _toggleCompletion
-      ..addTestId('todoListItem.completeCheckbox')
-    )();
+      ..addTestId('todoListItem.completeCheckbox'))();
   }
 
   ReactElement _renderTaskHeader() {
     return (Dom.div()
       ..role = Role.button
       ..onClick = _toggleExpansion
-      ..addTestId('todoListItem.header')
-    )(
+      ..addTestId('todoListItem.header'))(
       props.todo.description,
     );
   }
@@ -129,13 +120,13 @@ class TodoListItemComponent
   ReactElement _renderTaskNotes() {
     if (!props.isExpanded) return null;
     return (Dom.div()
-      ..className = 'todo-list__item__notes'
-      ..addTestId('todoListItem.row2')
-    )(
-      _hasNotes
-          ? props.todo.notes
-          : (Dom.em()..className = 'text-muted')('No notes.'),
-    );
+          ..className = 'todo-list__item__notes'
+          ..addTestId('todoListItem.row2'))(
+        Dom.div()(_hasNotes
+            ? props.todo.notes
+            : (Dom.em()..className = 'text-muted')('No notes.')),
+        Dom.div()((Dom.em()
+          ..className = 'text-muted')('Account ID: ${props.todo.accountID}')));
   }
 
   ReactElement _renderTaskControlsToolbar() {
@@ -148,8 +139,7 @@ class TodoListItemComponent
       ..className = 'todo-list__item__edit-btn'
       ..onClick = _edit
       ..isDisabled = !_canModify
-      ..addTestId('todoListItem.editButton')
-    )(
+      ..addTestId('todoListItem.editButton'))(
       (Icon()..glyph = IconGlyph.PENCIL)(),
     );
 
@@ -157,28 +147,24 @@ class TodoListItemComponent
       ..className = 'todo-list__item__privacy-btn'
       ..onClick = _togglePrivacy
       ..isDisabled = !_canModify || props.todo.isCompleted
-      ..addTestId('todoListItem.privacyButton')
-    )(
+      ..addTestId('todoListItem.privacyButton'))(
       (Icon()
         ..glyph =
-            props.todo.isPublic ? IconGlyph.EYE_SHOW : IconGlyph.EYE_HIDE
-      )(),
+            props.todo.isPublic ? IconGlyph.EYE_SHOW : IconGlyph.EYE_HIDE)(),
     );
 
     final delete = (_buttonFactory()
       ..className = 'todo-list__item__delete-btn'
       ..onClick = _delete
       ..isDisabled = !_canModify || props.todo.isCompleted
-      ..addTestId('todoListItem.deleteButton')
-    )(
+      ..addTestId('todoListItem.deleteButton'))(
       (Icon()..glyph = IconGlyph.TRASH)(),
     );
 
     return (ButtonToolbar()
       ..className = 'todo-list__item__controls-toolbar'
       ..addProps(ariaProps()..hidden = !_isHovered)
-      ..addTestId('todoListItem.buttonToolbar')
-    )(
+      ..addTestId('todoListItem.buttonToolbar'))(
       edit,
       privacy,
       delete,
