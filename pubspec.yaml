@@ -15,7 +15,7 @@ dependencies:
   todo2_sdk:
     git:
       url: git@github.com:thomasmaloney-wk/todo2-sdk.git
-      ref: 0.0.1
+      ref: 1.0.0
   uuid: ">=1.0.3 <2.0.0"
   w_session:
     hosted:
