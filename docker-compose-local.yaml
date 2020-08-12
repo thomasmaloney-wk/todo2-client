@@ -1,0 +1,29 @@
+version: '2'
+services:
+  todo2-client:
+    depends_on:
+      - nats
+      - messaging-frontend
+    ports:
+      - 8080:8080
+    image: 'todo2-client:latest-release'
+    environment:
+      IAM_UNSAFE: "true"
+      WORKIVA_CLUSTER_NAME: "wk-dev"
+  nats:
+    image: nats
+    ports:
+      - 4222:4222
+  messaging-frontend:
+    command:
+      - '-level=debug'
+      - '-nats=nats://nats:4222'
+      - '-pubkey-urls="https://wk-dev.wdesk.org/iam/oauth2/v2.0/certs"'
+      - '-dev-mode'
+    depends_on:
+      - nats
+    environment:
+      IAM_UNSAFE: "true"
+    image: drydock.workiva.net/workiva/messaging-frontend:latest
+    ports:
+      - 8100:8100
