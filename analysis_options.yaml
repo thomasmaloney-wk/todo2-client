@@ -1,0 +1,19 @@
+include: package:workiva_analysis_options/v1.recommended.yaml
+
+analyzer:
+  errors:
+    todo: error
+    unused_import: error
+    type_annotate_public_apis: info
+    prefer_void_to_null: info
+    omit_local_variable_types: ignore
+    avoid_types_on_closure_parameters: ignore
+    directives_ordering: error
+  exclude:
+    - "build/**"
+    - "test/unit/generated_runner_test.dart"
+    - "tool/over_react_format/*.dart"
+
+linter:
+  rules:
+    - directives_ordering
