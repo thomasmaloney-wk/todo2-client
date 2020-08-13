@@ -22,6 +22,12 @@ gen-docker:
 	  -f Dockerfile \
 	  -t todo2-client:latest-release .
 
+# gen-docker:
+# 	docker build \
+# 	  -f Dockerfile \
+# 	  -t todo2-client:latest-release .
+
+
 run-docker:
 	echo "starting todo2-client on port 8080"
 	docker-compose -f docker-compose-local.yaml up --force-recreate -d

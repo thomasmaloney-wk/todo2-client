@@ -53,7 +53,7 @@ dev_dependencies:
     hosted:
       name: over_react_format
       url: https://pub.workiva.org
-    version: ^3.0.0
+    version: ^3.2.0
   over_react_test: ^2.9.0
   react: ^5.1.1
   tuneup: ^0.3.6

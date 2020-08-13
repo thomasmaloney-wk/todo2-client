@@ -41,7 +41,7 @@ COPY . /build/
 RUN timeout 10m pub get
 
 ## Lint Project
-RUN pub run over_react_format:bootstrap --check
+#RUN pub run over_react_format:bootstrap --check
 RUN pub run dart_dev format --check
 RUN pub run dart_dev analyze
 
