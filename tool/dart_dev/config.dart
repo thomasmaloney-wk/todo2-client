@@ -7,7 +7,8 @@ import 'package:over_react_format/dart_dev_tool.dart';
 
 import '../gen_tests.dart';
 
-List<Glob> excludedFromGeneration = _getGeneratedFiles();
+List<Glob> excludedFromGeneration = [Glob('build/**')]
+  ..addAll(_getGeneratedFiles());
 
 final Map<String, DevTool> config = {
   ...workivaConfig,
